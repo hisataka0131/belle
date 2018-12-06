@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_chats/show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   devise_for :stylists, controllers: {
   sessions:      'stylists/sessions',
@@ -10,9 +11,15 @@ devise_for :users, controllers: {
   passwords:     'users/passwords',
   registrations: 'users/registrations'
 }
-root 'stylists#index'
+root 'posts#index'
 get 'users/top', to: 'users#top'
 resources :users
 resources :stylists
+resources :posts
+resources :messages, only: [:create]
+resources :rooms, only: [:create, :show, :index]
+resources :user_chats, only: [:show, :create]
+resources :chat_messages, only: [:create]
+
 
 end

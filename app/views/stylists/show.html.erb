@@ -1,0 +1,48 @@
+
+<div>
+    <h3><%= @stylist.stylist_name %></h3>
+    <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200, format: 'jpeg', fallback: "/assets/ooo.jpeg" %> 
+</div>
+<% if current_stylist != nil %>
+  <% if @stylist.id == current_stylist.id %>
+  <% else %>
+    <% if @isRoom == true %>
+      <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :stylist_id, :value=> @stylist.id %>
+        <% end %>
+        <%= f.submit "チャットを始める" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+    <% if @userChat != nil %>
+    <%= link_to "チャットへ", user_chat_path(@userChat), method: :get %>
+
+
+    <% else %>
+    <%= form_for @room do |f| %>
+      <%= f.hidden_field :stylist_id, :value=> @stylist.id %>
+
+    <%= f.submit "チャットを始める" %>
+    <% end %>
+
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= link_to 'edit', edit_stylist_path(@stylist) %>

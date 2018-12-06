@@ -1,0 +1,75 @@
+<h1>edit</h1>
+
+<%= form_for(@stylist) do |f| %>
+            <div>
+              <%= f.label :stylist_name %>
+              <%= f.text_field :stylist_name %>
+            </div>
+
+            <div>
+              <%= f.label :salon_name %>
+              <%= f.text_field :salon_name %>
+            </div>
+
+            <div>
+              <%= f.label :stylist_sex %>
+              <%= f.label :man %>
+              <%= f.radio_button :stylist_sex, :man, class:"sex" %>
+              <%= f.label :woman %>
+              <%= f.radio_button :stylist_sex, :woman, class:"sex" %>
+            </div>
+
+            <div>
+              <%= f.label :stylist_age %>
+              <%= f.text_field :stylist_age %>
+            </div>
+
+            <div>
+              <%= f.label :stylist_region %>
+              <%= f.text_field :stylist_region%>
+            </div>
+
+            <div >
+              <%= f.label :stylist_hobby%>
+              <%= f.text_field :stylist_hobby %>
+            </div>
+
+            <div>
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
+            </div>
+
+            <div>
+              <%= f.label :history %>
+              <%= f.text_field :history %>
+            </div>
+
+             <div>
+              <%= f.label :stylist_introduction%>
+              <%= f.text_area :stylist_introduction %>
+            </div>
+
+            <div>
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "new-password", class:"password" %>
+            </div>
+
+            <div>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
+            </div>
+            <div>
+            <div class="user-edit-image">
+            <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
+            </div>
+            <label>ProfileImage</label>
+            <%= f.attachment_field :stylist_image, placeholder: "プロフィール画像" %>
+            </div>
+
+            <div>
+              <%= f.submit "Update Account", class: "btn-default" %>
+            </div>
+<% end %>

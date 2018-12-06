@@ -10,6 +10,99 @@
   </head>
 
   <body>
+
+    <header>
+      <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        belle
+      </a>
+      </div>
+    
+      <div class="collapse navbar-collapse" id="navbarEexample7">
+      <ul class="nav navbar-nav">
+
+                <% if stylist_signed_in? && current_stylist %>
+
+                <li class="active">
+                  <%= link_to "HOME", root_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "RANK", root_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "STYLIST", stylists_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "BOARD", root_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "MYPAGE", stylist_path(current_stylist) %>
+                </li>
+
+                <li class="active">
+                  <%= link_to "LOGOUT", destroy_stylist_session_path, method: :delete%>
+                </li>
+               
+
+
+                <% elsif user_signed_in? %>
+
+
+                <li class="active">
+                  <%= link_to "HOME", root_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "RANK", root_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "STYLIST", stylists_path %>
+                </li>
+                <li class="active">
+                  <%= link_to "MYPAGE", user_path(current_user) %>
+                </li>
+                <li class="active">
+                   <%= link_to "LOG OUT" , destroy_user_session_path, method: :delete %>
+                </li>
+                
+                
+                <% else %>
+
+                <li class="active">
+                 <%= link_to "HOME", users_top_path %>
+                </li>
+                <li class="active">
+                 <%= link_to 'stylistSIGNIN', new_stylist_registration_path %>
+                </li>
+                <li class="active">
+                 <%= link_to 'userSIGNIN', new_user_registration_path %>
+                </li>
+
+                <li class="active">
+                 <%= link_to "STYLISTLOGIN", new_stylist_session_path %>
+                </li>
+
+                <li class="active">
+                 <%= link_to "USERLOGIN", new_user_session_path %>
+                </li>
+                
+                <% end %>
+        
+        </ul>
+      
+        </div>
+        </div>
+        </nav>
+      
+      
+    </header>
     <%= yield %>
   </body>
 </html>

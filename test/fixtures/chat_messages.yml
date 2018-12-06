@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_chat_id: one
+  content: MyText
+  stylist: false
+
+two:
+  user_chat_id: two
+  content: MyText
+  stylist: false

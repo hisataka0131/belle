@@ -1,0 +1,29 @@
+<h1>UserChats#show</h1>
+
+			<% @message.each do |m| %>
+
+			 <% if m.stylist %>
+
+			 <%= @stylist.stylist_name %>
+
+			 <% else %>
+
+			 <%= @user.user_name %>
+			 <% end %>
+
+			 <%= m.content %>
+
+			<% end %>
+
+
+
+
+
+
+			<%= form_for @message_new do |f| %>
+            <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
+            <%= f.hidden_field :user_chat_id, value: @user_chat.id %>
+           <br>
+           <%= f.submit "投稿する" %>
+           <% end %>
+		

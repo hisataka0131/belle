@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stylist_id: one
+  user_id: one
+  chat_name: MyString
+
+two:
+  stylist_id: two
+  user_id: two
+  chat_name: MyString
