@@ -1,0 +1,77 @@
+<div class="container ind">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+      
+      <div class="post-show"><%= attachment_image_tag @post, :post_image, :fill, 500, 500, format: 'jpeg', fallback: "/assets/ooo.jpeg" %></div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 shows">
+      
+
+
+      <div class="row">
+
+
+      <%= attachment_image_tag @post.stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/ooo.jpeg" , class: "stylist-image" %>
+
+      <%= @post.stylist.salon_name %>
+      <%= @post.stylist.stylist_name %>
+      
+        
+      
+
+      </div>
+
+      <div class="row show-favorite">
+
+      <% if current_user %>
+
+       <% if @post.favorited_by?(current_user ) %>
+        <li>
+          <%= link_to post_favorites_path(@post), method: :delete do %>
+            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+            favorite <%= @post.favorites.count %> 
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to post_favorites_path(@post), method: :post do %>
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+            favorite <%= @post.favorites.count %> 
+          <% end %>
+        </li>
+
+        <% end %>
+
+      <% else %>
+      favorite <%= @post.favorites.count %>
+
+      <% end %>
+
+      </div>
+
+      <div class="row show-contents">
+
+
+      <P class="show-title"><%= @post.post_name %></P>
+
+      <p class="show-opinion"><%= @post.post_opinion %></p>
+      
+
+      </div>
+     
+
+       </div>
+    
+      
+    </div>
+          
+  </div>
+  
+</div>
+
+
+
+
+

@@ -1,0 +1,35 @@
+<div class="container ind">
+
+  <div class="row">
+    <h2>RANKING</h2>
+  </div>
+
+  <div class="row">
+
+
+      <% @rank.each.with_index(1) do |rank, i| %>
+      <div class="post">
+      <%= "#{i}位" %>
+          <div class="blockarea">
+      <%= attachment_image_tag rank, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+        <div class="caparea1">
+          <h3><%= rank.post_name %></h3>
+          <h3><%= rank.stylist.stylist_name %></h3>
+          <p><%= link_to "SEE MORE", post_path(rank) %></p>
+
+        </div>
+           </div>
+         </div>
+
+      <% end %>
+      
+      
+  
+    
+
+    
+  </div>
+  
+  
+</div>

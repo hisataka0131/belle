@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -35,13 +35,13 @@
                   <%= link_to "HOME", root_path %>
                 </li>
                 <li class="active">
-                  <%= link_to "RANK", root_path %>
+                  <%= link_to "RANK", posts_rank_path %>
                 </li>
                 <li class="active">
                   <%= link_to "STYLIST", stylists_path %>
                 </li>
                 <li class="active">
-                  <%= link_to "BOARD", root_path %>
+                  <%= link_to "BOARD", boards_path %>
                 </li>
                 <li class="active">
                   <%= link_to "MYPAGE", stylist_path(current_stylist) %>
@@ -60,7 +60,7 @@
                   <%= link_to "HOME", root_path %>
                 </li>
                 <li class="active">
-                  <%= link_to "RANK", root_path %>
+                  <%= link_to "RANK", posts_rank_path %>
                 </li>
                 <li class="active">
                   <%= link_to "STYLIST", stylists_path %>

@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :user_chats, dependent: :destroy
   has_many :chat_messages, dependent: :destroy
+  has_many :favorites
+  has_many :posts, through: :favorites
+  has_many :follows, dependent: :destroy
+  has_many :stylists, through: :follows
 
 
   attachment :user_image

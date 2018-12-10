@@ -36,6 +36,18 @@ a:hover {
 	margin: 0;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  background: url(/assets/b080.jpg) repeat;
+}
+
+
+
 
 /*---------------------  共通   ---------------------------*/
 
@@ -89,22 +101,41 @@ a:hover {
 
 /*---------------------  post  ---------------------------*/
 
+.ind {
+  padding: 20px 0 40px 40px;
+
+}
+
+.top-head { 
+  padding-bottom: 20px;
+}
 
 .post{
 	float: left;
+  margin: 0 30px 0 0;
 }
+
+
 .blockarea{
   position: relative;
   overflow: hidden;
-  width: 300px;
+  width: 250px;
   margin-bottom:30px;
 }
 
 .blockarea p{
-  margin-bottom:0px;
+  margin-bottom:10px;
   color:#fff;
-  text-align:center;
+  text-align: right;
+  padding: 30px 10px 0 0;
 
+}
+
+.blockarea h3{
+  padding-top: 20px;
+  margin-bottom:10px;
+  color:#fff;
+  text-align: center;
 }
 
 .caparea1{
@@ -124,5 +155,164 @@ a:hover {
   opacity: 1;
 }
 
-
 /*---------------------  post  ---------------------------*/
+
+/*---------------------  post show  ---------------------------*/
+
+
+
+
+.stylist-image {
+  padding: 30px;
+  border-radius: 50%;
+
+
+
+}
+
+.post-show {
+  margin: 30px;
+}
+
+.shows {
+  padding: 70px 0 20px 30px;
+}
+
+.show-title {
+  font-size: 20px;
+  
+}
+.show-favorite {
+  padding-top: 20px;
+  padding-left: 30px
+}
+
+.show-contents {
+  padding-top: 20px;
+  padding-left: 30px
+
+
+}
+
+
+
+/*---------------------  post show  ---------------------------*/
+
+/*---------------------  stylist show  ---------------------------*/
+
+.profile-img {
+  text-align: center;
+}
+.stylist-pro {
+  border-radius: 50%;
+  padding: 40px 10px 40px 40px
+}
+.profile {
+  padding: 60px 0 20px 10px
+}
+
+.favorites {
+  font-size: 30px;
+  border: 2px solid #6ecdce;
+  border-radius: 10%;
+  background-color: #acece1;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.talks {
+  text-align: center;
+}
+
+.talk {
+  display: inline-block;
+}
+
+.new-talk {
+  display: inline-block
+}
+
+.edit {
+  display: inline-block
+}
+
+
+
+
+
+/*---------------------  stylist show  ---------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------  room ---------------------------*/
+
+
+
+.line-bc {
+  padding: 20px 10px;
+  max-width: 800px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+
+}
+
+.balloon6 {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.balloon6 .faceicon {
+    float: left;
+    margin-right: -50px;
+    width: 100px;
+}
+
+.balloon6 .chatting {
+    width: 100%;
+    text-align: left;
+}
+.says {
+    display: inline-block;
+    position: relative; 
+    margin: 0 0 0 50px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #edf1ee;
+}
+
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px; 
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #edf1ee;
+    -ms-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+.says p {
+    margin: 0;
+    padding: 0;
+}

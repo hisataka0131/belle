@@ -6,10 +6,23 @@ class Stylist < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :boards, dependent: :destroy
+  
   has_many :entries, dependent: :destroy
+  has_many :rooms, through: :entries, dependent: :destroy
+
   has_many :user_chats, dependent: :destroy
   has_many :chat_messages, dependent: :destroy
+  has_many :follows, dependent: :destroy
+  has_many :user, through: :follows
+  has_many :boards, dependent: :destroy
+  has_many :board_comments, dependent: :destroy
+
   attachment :stylist_image
 
   enum sex: {man: 1, woman: 2 }
+
+  def favorited_by?(user)
+          follows.where(user_id: user.id).exists?
+  end
 end

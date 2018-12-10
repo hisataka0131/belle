@@ -1,6 +1,16 @@
-<h1>Index</h1>
+<div class="container">
 
-<% @stylists.each do |u| %>
-  <p><a><%= u.stylist_name %>さん</a></p>
+
+
+<h1>STYLISTs</h1>
+
+<% @stylists.each do |stylist| %>
+
+<%= attachment_image_tag stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/ooo.jpeg" %> 
+
+
+  <%=link_to stylist.stylist_name , stylist_path(stylist) %>さん</a>
   <hr>
   <% end %>
+	
+</div>

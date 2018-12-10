@@ -2,29 +2,41 @@ class StylistsController < ApplicationController
 
 	def index
 		@stylists = Stylist.all
+
 	end
 
 	def show
 		@stylist = Stylist.find(params[:id])
 		@isRoom = false
+		@room = Room.new
+		@entry = Entry.new
 		if current_stylist != nil
 			@currentStylistEntry=Entry.where(stylist_id: current_stylist.id)
 	        @stylistEntry=Entry.where(stylist_id: @stylist.id)
 	     	@currentStylistEntry.each do |cu|
-		        @stylistEntry.each do |u|
-		            if cu.room_id == u.room_id then
-			            @isRoom = true
-			            @roomId = cu.room_id
-		            end
-		            if @isRoom
-		            else
-			           	@room = Room.new
-			            @entry = Entry.new
+			        @stylistEntry.each do |u|
+			            if cu.room_id == u.room_id
+				            @isRoom = true
+				            @roomId = cu.room_id
+				            break
+				         else
+				           	@room = Room.new
+				            @entry = Entry.new
+				        end
 			        end
-		        end
+				if @isRoom == true
+					break
+				end
 	        end
+
+	        if @isRoom == false
+				@room = Room.new
+				@entry = Entry.new
+			end
+
+
+	        @chats = UserChat.where(stylist_id: current_stylist.id)
 	    else
-	    	# @room = UserChat.new
 	    	if UserChat.find_by(user_id: current_user.id, stylist_id: @stylist.id)
 	    		@userChat = UserChat.find_by(user_id: current_user.id, stylist_id: @stylist.id)
 	    	else
@@ -32,6 +44,22 @@ class StylistsController < ApplicationController
 	        end
 
 	    end
+
+	    @rooms = []
+	    @stylist.entries.each do |entry|
+	    	@rooms.push(entry.room)
+	    end
+
+	    @other = []
+	    @rooms.each do |room|
+	    	@other.push(room.stylists.where.not(id: @stylist.id)[0])
+	    end
+
+	    @post = Post.where(stylist_id: @stylist.id)
+
+
+
+
 	end
 
 	def edit

@@ -7,10 +7,20 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+
+    end
+
+    def rank
+        @rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     end
 
     def new
     	@post = Post.new
+    end
+
+    def show 
+        @post = Post.find(params[:id])
+
     end
 
     def create

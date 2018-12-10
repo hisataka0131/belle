@@ -1,36 +1,196 @@
+<div class="container ind">
 
-<div>
-    <h3><%= @stylist.stylist_name %></h3>
-    <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200, format: 'jpeg', fallback: "/assets/ooo.jpeg" %> 
+  <div class="row">
+
+
+        <div class="col-xs-12 col-sm-6 col-md-6 profile-img">
+
+          
+          <div>
+              
+              <%= attachment_image_tag @stylist, :stylist_image, :fill, 300, 300, format: 'jpeg', fallback: "/assets/ooo.jpeg", class: "stylist-pro" %> 
+          </div>
+          
+
+          <!-- ----------follow----------- -->
+          <div class="fallows">
+            <% if current_user %>
+
+            <% if @stylist.favorited_by?(current_user) %>
+              <div class="favorites">
+                <%= link_to stylist_follow_path(@stylist), method: :delete do %>
+                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                  follow <%= @stylist.follows.count %> 
+                <% end %>
+              </div>
+
+            <% else %>
+              <div class="favorites">
+                <%= link_to stylist_follows_path(@stylist), method: :post do %>
+                  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                  follow <%= @stylist.follows.count %> 
+                <% end %>
+              </div>
+            <% end %>
+
+            <% else %>
+              <div class="favorites">
+
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                 follow <%= @stylist.follows.count %> 
+                <% end %>
+              </div>
+          </div>
+
+          <!-- ----------follow----------- -->
+
+          
+
+        </div>
+
+        <div class="col-sm-6 col-md-6 profile">
+          <table class="table">
+            <tr><th>名前</th><td><%= @stylist.stylist_name %></td></tr>
+          
+            <tr><th>サロン</th><td><%= @stylist.salon_name %></td></tr>
+            <tr><th>性別</th><td><%= @stylist.stylist_sex %></td></tr>
+            <tr><th>年齢</th><td><%= @stylist.stylist_age %> 歳</td></tr>
+            <tr><th>活動地域</th><td><%= @stylist.stylist_region %></td></tr>
+            <tr><th>趣味</th><td><%= @stylist.stylist_hobby %></td></tr>
+            <tr><th>スタイリスト歴</th><td><%= @stylist.history %> 年</td></tr>
+            <tr><th>得意</th><td><%= @stylist.fort %></td></tr>
+            <tr><th>自己紹介</th><td><%= @stylist.stylist_introduction %></td></tr>
+
+        </table>
+
+          
+        </div>
+
+
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 talks">
+        <div class="talk">
+            <% if current_stylist %>
+                    <button type="button" id="sampleButton" class="btn btn-primary btn-lg">トーク</button>
+
+                  <!-- モーダル・ダイアログ -->
+                  <div class="modal fade" id="sampleModal" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                          <h4 class="modal-title">トーク</h4>
+                        </div>
+                        <div class="modal-body">
+                          <% @chats.each do |chat| %>
+                          <table>
+                            <tr><th><%= chat.user.user_name %></th>
+                            <td><%= link_to 'チャットへ', user_chat_path(chat) %></td></tr>
+                          </table>
+                          <% end %>
+
+                          <% @other.each do |other| %>
+                          <table>
+                            <tr><th><%= other.stylist_name %></th>
+                            <td><%= link_to 'チャットへ', room_path(@rooms) %></td></tr>
+
+                          </table>
+
+                          <% end %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            <% end %>
+        </div>
+        <div class="new-talk">
+
+            <% if current_stylist != nil %>
+                <% if @stylist.id != current_stylist.id %>
+
+                  <% if @isRoom == true %>
+
+                    <%= link_to 'チャットへ', room_path(@roomId),class: 'chat btn btn-primary btn-lg' %>
+
+                  <% else %>
+                      <%= form_for @room do |f| %>
+
+                        <%= fields_for @entry do |e| %>
+                          <%= e.hidden_field :stylist_id, :value=> @stylist.id %>
+                        <% end %>
+                      
+                        <%= f.submit "チャットを始める", class: "chat btn btn-primary btn-lg" %>
+                      <% end %>
+                    <!-- <a class="chat btn btn-primary btn-lg" href="/rooms/<%#= @roomId %>">チャットへ</a> -->
+                  <% end %>
+
+                <% end %>
+
+              <% else %>
+                <% if @userChat != nil %>
+                  <%= link_to "チャットへ", user_chat_path(@userChat), method: :get %>
+                <% else %>
+                  <%= form_for @room do |f| %>
+                    <%= f.hidden_field :stylist_id, :value=> @stylist.id %>
+                    <%= f.submit "チャットを始める", class: "chat btn btn-primary btn-lg" %>
+                  <% end %>
+               <% end %>
+              <% end %>
+          </div>
+          <div class="edit">
+            <% if current_stylist %>
+            <%= link_to 'edit', edit_stylist_path(@stylist), class: "btn btn-primary btn-lg" %>
+            <% end %>
+
+          </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <h3>Style</h3>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+    
+
+    <% @post.each do |post| %>
+    <div class="post">
+        <div class="blockarea">
+
+        <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+        <div class="caparea1">
+        <h3><%= post.post_name %></h3>
+        <h3><%= post.stylist.stylist_name %></h3>
+        <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+
+        </div>
+        </div>
+    </div>
+    <% end %>
+
+  </div>
+    
+  </div>
+
+
 </div>
-<% if current_stylist != nil %>
-  <% if @stylist.id == current_stylist.id %>
-  <% else %>
-    <% if @isRoom == true %>
-      <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-    <% else %>
-      <%= form_for @room do |f| %>
-        <%= fields_for @entry do |e| %>
-          <%= e.hidden_field :stylist_id, :value=> @stylist.id %>
-        <% end %>
-        <%= f.submit "チャットを始める" %>
-      <% end %>
-    <% end %>
-  <% end %>
-<% else %>
-    <% if @userChat != nil %>
-    <%= link_to "チャットへ", user_chat_path(@userChat), method: :get %>
 
 
-    <% else %>
-    <%= form_for @room do |f| %>
-      <%= f.hidden_field :stylist_id, :value=> @stylist.id %>
 
-    <%= f.submit "チャットを始める" %>
-    <% end %>
 
-  <% end %>
-<% end %>
+
+
+
+
 
 
 
