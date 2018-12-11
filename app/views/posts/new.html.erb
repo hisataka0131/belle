@@ -6,6 +6,11 @@
  
   <h4>本文</h4>
   <%= f.text_area :post_opinion %>
+
+  <h4>カテゴリー</h4>
+  <%= f.select :category, Post.categories.keys.to_a, {} %>
+ 
+
  
  
   <h4>画像</h4>

@@ -2,6 +2,10 @@
 
     
   <h1 class="top-head">SNAPS</h1>
+  <%= form_tag(posts_path, method: "get") do %>
+  <%= select_tag :category, options_for_select(Post.categories), include_blank:true %>
+  <%= submit_tag "検索" %>
+  <% end %>
     <% @posts.each do |post| %>
   <div class="post">
     <div class="blockarea">

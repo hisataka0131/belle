@@ -7,6 +7,9 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
+        if params[:category].present?
+            @posts = @posts.get_by_category params[:category]
+        end
 
     end
 
@@ -35,7 +38,7 @@ class PostsController < ApplicationController
 
     private
     def post_params
-    params.require(:post).permit(:post_name, :post_opinion, :post_image, :stylist_id)
+    params.require(:post).permit(:post_name, :post_opinion, :post_image, :stylist_id, :category)
     end
 
 
