@@ -69,3 +69,4 @@ gem "refile-mini_magick"
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem "pry-rails"
+gem 'geocoder'

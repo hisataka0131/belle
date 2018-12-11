@@ -1,0 +1,38 @@
+<%= form_for(@salon) do |f| %>
+            <div>
+              <%= f.label :post_code %>
+              <%= f.text_field :post_code %>
+            </div>
+
+            
+            <div>
+              <%= f.label :address %>
+              
+              <%= f.text_field :adress %>
+            </div>
+
+            <div>
+              <%= f.label :phone_number%>
+              <%= f.text_field :phone_number%>
+            </div>
+
+            <div>
+              <%= f.label :holiday %>
+              <%= f.text_field :holiday%>
+            </div>
+
+            <div >
+              <%= f.label :business_houre%>
+              <%= f.text_field :business_hour %>
+            </div>
+
+            <div>
+              <%= f.label :menu%>
+              <%= f.email_field :menu %>
+            </div>
+
+
+            <div>
+              <%= f.submit "Update Account", class: "btn-default" %>
+            </div>
+<% end %>

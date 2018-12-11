@@ -52,7 +52,7 @@
           <table class="table">
             <tr><th>名前</th><td><%= @stylist.stylist_name %></td></tr>
           
-            <tr><th>サロン</th><td><%= @stylist.salon_name %></td></tr>
+            <tr><th>サロン</th><td><%= link_to @stylist.salon_name, stylist_salon_path(@stylist) %></td></tr>
             <tr><th>性別</th><td><%= @stylist.stylist_sex %></td></tr>
             <tr><th>年齢</th><td><%= @stylist.stylist_age %> 歳</td></tr>
             <tr><th>活動地域</th><td><%= @stylist.stylist_region %></td></tr>
@@ -186,23 +186,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%= link_to 'salon', stylist_salon_path(@stylist) %>
 
 <%= link_to 'edit', edit_stylist_path(@stylist) %>

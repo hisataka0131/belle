@@ -1,6 +1,18 @@
 <h1>edit</h1>
 
 <%= form_for(@stylist) do |f| %>
+
+              <% if @stylist.errors.any? %>
+              <div id="error_explanation">
+              <h2><%= pluralize(map.errors.count, "error") %> prohibited this map from being saved:</h2>
+
+              <ul>
+              <% @stylist.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+               <% end %>
+              </ul>
+              </div>
+             <% end %>
             <div>
               <%= f.label :stylist_name %>
               <%= f.text_field :stylist_name %>
@@ -48,6 +60,45 @@
               <%= f.label :stylist_introduction%>
               <%= f.text_area :stylist_introduction %>
             </div>
+            <div>
+              <%= f.label :post_code %>
+              <%= f.text_field :post_code %>
+            </div>
+
+            
+            <div>
+              <%= f.label :address %>
+              
+              <%= f.text_field :address %>
+            </div>
+
+            <div>
+              <%= f.label :phone_number %>
+              <%= f.text_field :phone_number%>
+            </div>
+
+            <div>
+              <%= f.label :holiday %>
+              <%= f.text_field :holiday%>
+            </div>
+
+            <div >
+              <%= f.label :business_houre%>
+              <%= f.text_field :business_houre %>
+            </div>
+
+            <div>
+              <%= f.label :menu%>
+              <%= f.email_field :menu %>
+            </div>
+
+            <div>
+            <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
+            </div>
+            <label>SalonImage</label>
+            <%= f.attachment_field :salon_image, placeholder: "salon画像" %>
+            </div>
+
 
             <div>
               <%= f.label :password %>
@@ -62,7 +113,7 @@
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
             </div>
             <div>
-            <div class="user-edit-image">
+            <div>
             <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
             </div>
             <label>ProfileImage</label>

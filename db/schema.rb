@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_055331) do
+ActiveRecord::Schema.define(version: 2018_12_11_071608) do
 
   create_table "board_comments", force: :cascade do |t|
     t.text "comment"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 2018_12_09_055331) do
     t.string "post_name"
     t.string "post_image_id"
     t.text "post_opinion"
-    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "stylist_id"
@@ -86,6 +85,12 @@ ActiveRecord::Schema.define(version: 2018_12_09_055331) do
     t.string "room_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "salons", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "stylist_id"
   end
 
   create_table "stylists", force: :cascade do |t|
@@ -106,6 +111,17 @@ ActiveRecord::Schema.define(version: 2018_12_09_055331) do
     t.string "fort"
     t.string "history"
     t.text "stylist_introduction"
+    t.string "post_code"
+    t.string "address"
+    t.string "phone_number"
+    t.string "holiday"
+    t.string "business_houre"
+    t.string "menu"
+    t.string "salon_image_id"
+    t.text "salon_introduction"
+    t.string "salon_url"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_stylists_on_email", unique: true
     t.index ["reset_password_token"], name: "index_stylists_on_reset_password_token", unique: true
   end

@@ -1,4 +1,7 @@
 class Stylist < ApplicationRecord
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,8 +20,12 @@ class Stylist < ApplicationRecord
   has_many :user, through: :follows
   has_many :boards, dependent: :destroy
   has_many :board_comments, dependent: :destroy
+  has_one :salon, dependent: :destroy
 
   attachment :stylist_image
+  attachment :salon_image
+
+  
 
   enum sex: {man: 1, woman: 2 }
 

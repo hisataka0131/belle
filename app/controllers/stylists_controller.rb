@@ -78,6 +78,6 @@ class StylistsController < ApplicationController
 	private
 
 	def stylist_params
-		params.require(:stylist).permit(:stylist_name, :salon_name, :stylist_sex, :stylist_age, :stylist_region, :stylist_hobby, :email, :history, :stylist_introduction, :stylist_image)
+		params.require(:stylist).permit(:stylist_name, :salon_name, :stylist_sex, :stylist_age, :stylist_region, :stylist_hobby, :email, :history, :stylist_introduction, :stylist_image, :post_code, :address, :phone_number, :holiday, :business_houre, :menu, :salon_image)
 	end
 end

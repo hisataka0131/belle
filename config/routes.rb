@@ -21,6 +21,7 @@ get 'users/top', to: 'users#top'
 resources :users 
 resources :stylists do
 	resources :follows, only: [:create, :destroy]
+  resources :salons, expect: [:index]
 end
 resources :posts do
     resource :favorites, only: [:create, :destroy]
