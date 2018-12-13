@@ -2,10 +2,21 @@
 
     
   <h1 class="top-head">SNAPS</h1>
-  <%= form_tag(posts_path, method: "get") do %>
-  <%= select_tag :category, options_for_select(Post.categories), include_blank:true %>
-  <%= submit_tag "検索" %>
-  <% end %>
+
+  <!-- タブ・メニュー -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#sampleContentA" data-toggle="tab">ALL</a></li>
+  <li><a href="#sampleContentB" data-toggle="tab">MEN</a></li>
+  <li><a href="#sampleContentC" data-toggle="tab">SHORT</a></li>
+  <li><a href="#sampleContentD" data-toggle="tab">MEDIUM</a></li>
+  <li><a href="#sampleContentE" data-toggle="tab">LONG</a></li>
+
+</ul>
+
+<!-- タブ内容 -->
+<div class="tab-content">
+  <div class="tab-pane active" id="sampleContentA">
+    
     <% @posts.each do |post| %>
   <div class="post">
     <div class="blockarea">
@@ -21,10 +32,84 @@
      </div>
    </div>
 <% end %>
+  </div>
+  <div class="tab-pane" id="sampleContentB">
+    
+    <% @men.each do |post| %>
+  <div class="post">
+    <div class="blockarea">
+
+  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+  <div class="caparea1">
+    <h3><%= post.post_name %></h3>
+    <h3><%= post.stylist.stylist_name %></h3>
+    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+
+  </div>
+     </div>
+   </div>
+<% end %>
+  </div>
+  <div class="tab-pane" id="sampleContentC">
+    <% @short.each do |post| %>
+  <div class="post">
+    <div class="blockarea">
+
+  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+  <div class="caparea1">
+    <h3><%= post.post_name %></h3>
+    <h3><%= post.stylist.stylist_name %></h3>
+    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+
+  </div>
+     </div>
+   </div>
+<% end %>
+  </div>
+  <div class="tab-pane" id="sampleContentD">
+    <% @medium.each do |post| %>
+  <div class="post">
+    <div class="blockarea">
+
+  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+  <div class="caparea1">
+    <h3><%= post.post_name %></h3>
+    <h3><%= post.stylist.stylist_name %></h3>
+    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+
+  </div>
+     </div>
+   </div>
+<% end %>
+  </div>
+
+  <div class="tab-pane" id="sampleContentE">
+    <% @long.each do |post| %>
+  <div class="post">
+    <div class="blockarea">
+
+  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+  <div class="caparea1">
+    <h3><%= post.post_name %></h3>
+    <h3><%= post.stylist.stylist_name %></h3>
+    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+
+  </div>
+     </div>
+   </div>
+<% end %>
+  </div>
 
 
 
 
+
+</div>
+  
 
 
 </div>

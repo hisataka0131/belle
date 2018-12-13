@@ -7,9 +7,10 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all
-        if params[:category].present?
-            @posts = @posts.get_by_category params[:category]
-        end
+        @men = Post.where(category: 0 )
+        @short = Post.where(category: 1)
+        @medium = Post.where(category: 2 )
+        @long = Post.where(category: 3 )
 
     end
 
