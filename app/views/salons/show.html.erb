@@ -1,53 +1,55 @@
 
 <div class="container">
-	<div class="row">
-		<h2><%= @stylist.salon_name %></h2>
+			<div class="row">
+				<h2 class="salon-head"><%= @stylist.salon_name %></h2>
 
-	</div>
+			</div>
 
-	<div class="row">
+			<div class="row">
 
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			
+				
 
-		</div>
+					<%= attachment_image_tag @stylist, :salon_image, :fill, 600, 260, format: 'jpeg', fallback: "/assets/ooo.jpeg", class: "salon-img" %>
+				
+			</div>
 
-			<%= attachment_image_tag @stylist, :salon_image, :fill, 600, 260, format: 'jpeg', fallback: "/assets/ooo.jpeg", class: "salon-img" %>
-		
-	</div>
+			<div class="row salon-md">
 
-	<div class="row">
-		<table class="table">
-            <tr><th>サロン</th><td><%= @stylist.salon_name %></td></tr>
-          
-            <tr><th>住所</th><td><%= link_to @stylist.address %></td></tr>
-            <tr><th>定休日</th><td><%= @stylist.holiday %></td></tr>
-            <tr><th>営業時間</th><td><%= @stylist.business_houre %> 歳</td></tr>
-            <tr><th>メニュー</th><td><%= @stylist.menu %></td></tr>
-            <tr><th>電話番号</th><td><%= @stylist.phone_number %></td></tr>
-            <tr><th>URL</th><td><%= @stylist.salon_url %> 年</td></tr>
-            <tr><th>紹介</th><td><%= @stylist.salon_introduction %></td></tr>
+				<table class="table ">
+					<div class="salon-md">
+		            <tr><th>サロン</th><td><%= @stylist.salon_name %></td></tr>
+		          
+		            <tr><th>住所</th><td><%= @stylist.address %></td></tr>
+		            <tr><th>定休日</th><td><%= @stylist.holiday %></td></tr>
+		            <tr><th>営業時間</th><td><%= @stylist.business_houre %></td></tr>
+		            <tr><th>メニュー</th><td><%= @stylist.menu %></td></tr>
+		            <tr><th>電話番号</th><td><%= @stylist.phone_number %></td></tr>
+		            <tr><th>URL</th><td><%= @stylist.salon_url %></td></tr>
+		            <tr><th>紹介</th><td><%= @stylist.salon_introduction %></td></tr>
+		            </div>
 
-        </table>
+		        </table>
 
-
-
-
-	</div>
-
-	<div class="row">
-
-		    <iframe
-			  width="80%"
-			  height="450"
-			  frameborder="0" style="border:0"
-			  src=<%= "https://www.google.com/maps/embed/v1/search?key=AIzaSyDqOZqhvkAjHhKyqY88x1WejxzwHR-E-ZM&q=#{@stylist.address}" %> allowfullscreen>
-　　　　　　　</iframe>
+		        
 
 
-		
 
-	</div>
+
+			</div>
+
+			<div class="row salon-map">
+
+				    <iframe
+					  width="90%"
+					  height="500"
+					  frameborder="0" style="border:0"
+					  src=<%= "https://www.google.com/maps/embed/v1/search?key=AIzaSyDqOZqhvkAjHhKyqY88x1WejxzwHR-E-ZM&q=#{@stylist.address}" %> allowfullscreen>
+		　　　　　　　</iframe>
+
+
+				
+
+			</div>
 
 
 

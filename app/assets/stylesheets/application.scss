@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -26,12 +27,18 @@
 a {
 	color: #90e0d2
 }
+active > a {
+  cursor : pointer;
+}
 
 a:hover {
 	text-decoration: none;
 	color: #40e6da;
 }
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  cursor : pointer;
 
+}
 .navbar {
 	margin: 0;
 }
@@ -44,12 +51,64 @@ a:hover {
 
 body {
   background: url(/assets/b080.jpg) repeat;
+  color: #58575;
+}
+
+input {
+  border-color: #bac1f982;
+}
+
+textarea, select {
+  border-color: #bac1f982;
+}
+
+/*---------------------  共通   ---------------------------*/
+/*---------------------  application  ---------------------------*/
+
+
+.sign_modal_wrapper2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .7;
+  display: none;
+}
+.sign_modal2 {
+  position: absolute;
+  background-color: #ffffffcf;
+  width: 450px;
+  height: 350px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 100px auto 0;
+  border: 1px solid #eee;
+  display: none;
+  text-align: right;
+}
+
+.sign_modal_content2 {
+  display: none;
+  text-align: center;
+}
+
+.fa_wrapper2 {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
 }
 
 
+/*---------------------  application  ---------------------------*/
 
 
-/*---------------------  共通   ---------------------------*/
+
+
+
+
 
 /*---------------------  top   ---------------------------*/
 
@@ -59,8 +118,23 @@ body {
 
 .top img {
 	width: 100%;
-	height: 750px;
+	height: 770px;
 	filter:brightness(80%);
+  border: 1px solid #80808094;
+}
+
+.top-head1 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0;
+}
+
+.errer {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: red;
+  font-size: 20px;
 }
 
 .top-button {
@@ -68,11 +142,12 @@ body {
 	top: 80%;
 	left: 40%;
 	margin: 0;
-	padding: 20px 80px;
+	padding: 20px 91px;
 	background-color: transparent;
-    border: 5px solid #d8f1f0;
-    color: #d8f1f0;
+    border: 5px solid #c9f7f5;
+    color: #b0fbf8;
     line-height: 50px;
+    cursor : pointer;
 
 
 }
@@ -87,9 +162,10 @@ body {
 	margin: 0;
 	padding: 20px 72px;
 	background-color: transparent;
-    border: 5px solid #d8f1f0;
-    color: #d8f1f0;
+    border: 5px solid #c9f7f5;
+    color: #b0fbf8;
     line-height: 50px;
+    cursor : pointer;
 
 
 }
@@ -97,22 +173,81 @@ body {
 .top-button2:hover {
   background-color: rgba(255, 255, 255, .2);
 }
+
+
+
+.sign_modal_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .7;
+  display: none;
+}
+.sign_modal {
+  position: absolute;
+  background-color: #ffffffcf;
+  width: 450px;
+  height: 550px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 100px auto 0;
+  border: 1px solid #eee;
+  display: none;
+  text-align: right;
+}
+
+.sign_modal_content {
+  display: none;
+  text-align: center;
+}
+
+.fa_wrapper {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
+}
+
+.top-bt {
+  margin-top: 10px;
+}
+
+.tops {
+  color: black;
+}
+
+.new-header {
+  margin-bottom: 25px;
+}
+
+.top-new {
+  margin-top: 30px;
+}
+
 /*---------------------  top  ---------------------------*/
 
-/*---------------------  post  ---------------------------*/
+/*---------------------  post index  ---------------------------*/
 
 .ind {
   padding: 20px 0 40px 40px;
 
 }
 
-.top-head { 
-  padding-bottom: 20px;
+.test{
+}
+.heads { 
+  padding: .25em 0 .5em .75em;
+  border-left: 8px solid #a0e6cda3;
+  color: #585757;
+  margin-bottom: 70px;
 }
 
 .post{
 	float: left;
-  margin: 0 30px 0 0;
+  margin: 20px 30px 0 10px;
 }
 
 
@@ -149,13 +284,89 @@ body {
   -webkit-transition: .3s;
   transition: .3s;
   opacity: 0;
+  margin: 20px 0 0 10px;
 }
 
 .blockarea:hover .caparea1{
   opacity: 1;
 }
 
-/*---------------------  post  ---------------------------*/
+
+.new_button {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 10px 60px;
+  opacity: .6;
+  transition: .3s;
+  margin: 0 0 20px 20px;
+  border-radius: 5px;
+  background-color: #c0def5a1;
+}
+
+.new_button:hover {
+  opacity: 1;
+}
+
+.news_button {
+  margin-right: 30px;
+}
+
+.new_modal_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .7;
+  display: none;
+}
+.new_modal {
+  position: absolute;
+  background-color: #ffffffcf;
+  width: 450px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 150px auto 0;
+  border: 1px solid #eee;
+  display: none;
+  text-align: right;
+}
+
+.new_modal_content {
+  display: none;
+  text-align: center;
+}
+
+.new_fa_wrapper {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
+}
+
+.tabs  a {
+  color: black;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: #9d9ff340;
+  border: 1px solid #688af1;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #688af1;
+}
+
+
+.img-post {
+  margin: 0 auto;
+}
+
+
+/*---------------------  postindex  ---------------------------*/
 
 /*---------------------  post show  ---------------------------*/
 
@@ -170,6 +381,12 @@ body {
 
 }
 
+
+.show-img {
+  text-align: center;
+}
+
+
 .post-show {
   margin: 30px;
 }
@@ -178,26 +395,111 @@ body {
   padding: 70px 0 20px 30px;
 }
 
+.favorite-term {
+  display: inline-block;
+  padding: 0 15px 0 0;
+}
+
+.show-name {
+  font-size: 24px;
+  font-weight: bold;
+}
 .show-title {
-  font-size: 20px;
+  font-size: 26px;
+  padding-top: 15px;
   
+}
+
+.show-opinion {
+  font-size: 20px;
+  padding-left: 15px;
 }
 .show-favorite {
   padding-top: 20px;
-  padding-left: 30px
+  padding-left: 30px;
+  font-size: 21px;
 }
 
 .show-contents {
   padding-top: 20px;
-  padding-left: 30px
+  padding-left: 30px;
 
 
 }
 
+.show-coments {
+  padding-top: 20px;
+}
+
+.show-coment {
+  border: 1px solid #bac1f982;
+}
+
+.show-coment-dtail {
+  padding-left: 38px;
+}
 
 
+.nav-tabs > li {
+  color: #585757;
+  font-size: 22px;
+}
+.show-favorit a {
+  color: pink;
+}
+
+
+.mt-20 {
+  border: 1px solid #bac1f982;
+  margin-top: 10px;
+}
+.form-control {
+  border: 1px solid #bac1f982;
+}
+
+.show-btn {
+  text-align:center;
+  margin: 20px 0;
+}
+
+.showb {
+  margin-right: 15px;
+}
 /*---------------------  post show  ---------------------------*/
 
+
+/*---------------------  post edit ---------------------------*/
+
+
+.edits {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.texter {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.sender {
+  text-align: center;
+}
+/*---------------------  post edit  ---------------------------*/
+
+
+
+/*---------------------  post rank  ---------------------------*/
+
+.rank {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+
+
+/*---------------------  post rank  ---------------------------*/
 /*---------------------  stylist show  ---------------------------*/
 
 .profile-img {
@@ -211,14 +513,6 @@ body {
   padding: 60px 0 20px 10px
 }
 
-.favorites {
-  font-size: 30px;
-  border: 2px solid #6ecdce;
-  border-radius: 10%;
-  background-color: #acece1;
-  width: 70%;
-  margin: 0 auto;
-}
 
 .talks {
   text-align: center;
@@ -236,17 +530,126 @@ body {
   display: inline-block
 }
 
+.pv {
+  display: inline-block;
+  padding-left: 15px;
+}
+.favorites {
+  font-size: 21px;
+  padding: 0 0 20px 0;
+}
+
+.glyphicon-heart:before {
+    color: #f10505;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid #bac1f982;
+}
+
+.styles {
+  padding: .25em 0 .5em .75em;
+  border-left: 8px solid #a0e6cda3;
+  color: #585757;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 10px 30px;
+  opacity: .6;
+  transition: .3s;
+  border-radius: 5px;
+  background-color: #c0def5a1;
+  color: black;
+}
+
+.btn-primary:hover {
+  opacity: 1;
+  color: black;
+  background-color:#c0def5a1;
+}
 
 
+.bottom {
+  text-align: center;
+  margin: 20px 0;
+}
+.bottom-content {
+  margin-right: 20px;
+}
 
+.chat {
+  padding-left: 30px;
+}
 
 /*---------------------  stylist show  ---------------------------*/
 
+/*---------------------  stylist edit  ---------------------------*/
+
+.editer {
+  text-align: center;
+}
+
+.edit-img {
+  margin: 0 auto;
+}
+
+.ed {
+  margin-top: 30px;
+}
+
+
+
+/*---------------------  stylist edit  ---------------------------*/
+
+
+
+/*---------------------  stylist index ---------------------------*/
 
 
 
 
+.stylist-index {
+  margin: 30px;
+}
 
+
+.stylist-tab {
+  font-size: 17px;
+  font-weight: bold;
+  text-align: center;
+}
+.under {
+  border: 0;
+  height: 0; /* Firefox... */
+  box-shadow: 0 0 10px 1px #b2c5f5;
+  margin: 0;
+}
+
+.stylist-name {
+  color: #688af1;
+  
+}
+
+.under-hr {
+  text-align: center;
+}
+
+.stylist-line {
+  border-color: #bac1f982;
+}
+
+.index-img {
+  border-radius: 50%;
+}
+
+/*---------------------  stylist index  ---------------------------*/
 
 
 
@@ -262,55 +665,13 @@ body {
 
 /*---------------------  room ---------------------------*/
 
-
-
-.balloon2-left {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 0 1.5em 15px;
-  padding: 10px 10px;
-  min-width: 120px;
-  max-width: 100%;
-  color: #555;
-  font-size: 16px;
-  background: #FFF;
-  border: solid 2px #555;
-  box-sizing: border-box;
-  border-radius: 12px
+.layout {
+  border-radius: 50%;
 }
 
-.balloon2-left:before{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -24px;
-  margin-top: -12px;
-  border: 12px solid transparent;
-  border-right: 12px solid #FFF;
-  z-index: 2;
-}
 
-.balloon2-left:after{
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -30px;
-  margin-top: -14px;
-  border: 14px solid transparent;
-  border-right: 14px solid #555;
-  z-index: 1;
-}
 
-.balloon2-left p {
-  margin: 0;
-  padding: 0;
-}
 
-.line {
-  background: url(/assets/ooo.jpeg) no-repeat;
-  width: 100%;
-  height: 100%;
-}
 
 /*---------------------  room ---------------------------*/
 /*---------------------  salon ---------------------------*/
@@ -322,19 +683,191 @@ body {
 
 }
 
+.salon-head {
+  padding: .25em 0 .5em .75em;
+  color: #585757;
+  margin-bottom: 40px;
+}
+
+.salon-md {
+  margin: 40px;
+}
+
+.salon-map {
+  margin: 0 0 40px 100px;
+}
+/*---------------------  salon ---------------------------*/
+
+
+/*---------------------  boardindex ---------------------------*/
+
+
+.new_button2 {
+  display: inline-block;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 10px 60px;
+  opacity: .6;
+  transition: .3s;
+  border-radius: 5px;
+  background-color: #c0def5a1;
+  margin: 0 0 0 20px;
+}
+
+.new_button2:hover {
+  opacity: 1;
+}
+
+.news_button2 {
+  margin-right: 30px;
+}
+
+.new_modal_wrapper2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: .7;
+  display: none;
+}
+.new_modal2 {
+  position: absolute;
+  background-color: #ffffffcf;
+  width: 450px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 100px auto 0;
+  border: 1px solid #eee;
+  display: none;
+  text-align: right;
+}
+
+.new_modal_content2 {
+  display: none;
+  text-align: center;
+}
+
+.new_fa_wrapper2 {
+  cursor: pointer;
+  margin: 3px 3px 0 0;
+
+}
+
+.hr-board {
+  border: 1px solid #bac1f982;
+}
+.thead {
+  margin: 40px;
+
+}
+
+.top-under {
+  border: 1px solid #688af1;
+
+}
+.thead-img {
+  border-radius: 50%;
+}
+
+.boards {
+　width: 80%;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  background: #FFF;
+
+  background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+
+/*---------------------  boardindex ---------------------------*/
 
 
 
 
+/*---------------------  boardshow ---------------------------*/
 
 
+.title {
+  width: 80%;
+  max-height: 500px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  background: #FFF;
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
 
+.thead-header {
+  position: relative;
+  padding: .5em .75em;
+  background-color: #a7c4f363;
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .1) inset;
+  margin: 70px 10px 10px 10px;
+}
+.thead-header::after {
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 15px solid #a7c4f363;
+}
 
+.thead-content {
 
+  padding: 0;
+  text-align: center;
 
+}
 
+/*---------------------  boardshow ---------------------------*/
+/*---------------------  userchat---------------------------*/
+.title2 {
+  width: 80%;
+  max-height: 500px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  background: #FFF;
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 30px;/*角の丸み*/
+  background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
 
+.title3 {
+  width: 80%;
+  max-height: 500px;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3;/*文字色*/
+  background: #FFF;
+  border: solid 3px #6091d3;/*線*/
+  border-radius: 30px;/*角の丸み*/
+  background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
 
+.light-content {
+  text-align: center;
+}
+/*---------------------  userchat---------------------------*/
 
 
 

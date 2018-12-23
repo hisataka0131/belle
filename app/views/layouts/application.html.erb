@@ -32,7 +32,7 @@
                 <% if stylist_signed_in? && current_stylist %>
 
                 <li class="active">
-                  <%= link_to "HOME", root_path %>
+                  <%= link_to "HOME", posts_path %>
                 </li>
                 <li class="active">
                   <%= link_to "RANK", posts_rank_path %>
@@ -57,7 +57,7 @@
 
 
                 <li class="active">
-                  <%= link_to "HOME", root_path %>
+                  <%= link_to "HOME", posts_path %>
                 </li>
                 <li class="active">
                   <%= link_to "RANK", posts_rank_path %>
@@ -76,21 +76,15 @@
                 <% else %>
 
                 <li class="active">
-                 <%= link_to "HOME", users_top_path %>
-                </li>
-                <li class="active">
-                 <%= link_to 'stylistSIGNIN', new_stylist_registration_path %>
-                </li>
-                <li class="active">
-                 <%= link_to 'userSIGNIN', new_user_registration_path %>
+                 <%= link_to "HOME", root_path %>
                 </li>
 
-                <li class="active">
-                 <%= link_to "STYLISTLOGIN", new_stylist_session_path %>
+                <li class="active sign_button2 sign_up_button2">
+                 <a>STYLISTLOGIN</a>
                 </li>
 
-                <li class="active">
-                 <%= link_to "USERLOGIN", new_user_session_path %>
+                <li class="active sign_button2 sign_in_button2">
+                 <a>USERLOGIN</a>
                 </li>
                 
                 <% end %>
@@ -100,9 +94,12 @@
         </div>
         </div>
         </nav>
+                 
+
       
       
     </header>
     <%= yield %>
+    <%= flash[:notice] %>
   </body>
 </html>

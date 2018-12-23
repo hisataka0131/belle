@@ -1,6 +1,8 @@
 class BoardsController < ApplicationController
+  before_action :authenticate_stylist!
   def index
   	@boards = Board.all
+    @board = Board.new
   end
 
   def show
@@ -41,7 +43,7 @@ class BoardsController < ApplicationController
   private
 
   def params_board
-  	params.require(:board).permit(:title, :content, :stylist_id)
+  	params.require(:board).permit(:title, :content, :stylist_id, :board_image)
 
   end
 

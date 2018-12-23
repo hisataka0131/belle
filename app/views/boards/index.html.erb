@@ -1,7 +1,52 @@
-<h1>スレッド一覧</h1>
-    <%= link_to "スレッド新規作成", new_board_path %>
-<div>
-	<% @boards.each do |board| %>
-	   <%= link_to board.title, board_path(board) %> </br>
-    <% end %>
+<div class="container">
+	
+
+
+		<h1 class="heads">スレッド</h1>
+
+		<div class="row thead">
+				    <p class="new_button2 news_button2">NEW</p>
+				<div class="boards">
+
+					<% @boards.each do |board| %>
+					<hr class="hr-board">
+					<table>
+						<th class="col-xs-3 thead-img"><%= attachment_image_tag board.stylist, :stylist_image, :fill, 50, 50, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "thead-img" %></th>
+						<td class="col-xs-6"><%= link_to board.title, board_path(board), class:"stylist-name" %> </td>
+				    </table>
+					   <hr class="hr-board">
+				    <% end %>
+				</div>
+        </div>
+	
 </div>
+
+
+
+
+
+
+<div class="new_modal_wrapper2"></div>
+            <div class="new_modal2">
+              <span class="new_fa_wrapper2"><%= fa_icon "times" %></span>
+                  <div class="news_modal2 new_modal_content2">
+                    <h2>NEW</h2>
+                         <%= form_for(@board) do |f| %>
+ 
+						  <h4>タイトル</h4>
+						  <%= f.text_field :title %>
+						 
+						  <h4>本文</h4>
+						  <%= f.text_area :content %>
+
+						  
+						  <h4>画像</h4>
+						  <%= f.attachment_field :board_image, class: "img-post" %>
+						 
+						  <%= f.submit '投稿', class: "btn btn-primary btn-lg top-bt" %>
+						<% end %>
+                  </div>
+        
+      </div>
+        
+

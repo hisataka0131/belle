@@ -2,11 +2,178 @@
 
 	<img src="/assets/Collage_Fotor5.jpg">
 
-    
-	<div><%= link_to 'USER', new_user_registration_path, class:"top-button" %></div>
-	<div class="top-button2"><%= link_to 'STYLIST', new_stylist_registration_path %></div>
+
+    <div class="errer"><%= flash[:notice] %></div>
+	<div class="top-button sign_button sign_in_button"><p class="top-head1">USER</p></div>
+	<div class="top-button2 sign_button sign_up_button"><p class="top-head1">STYLIST</p></div>
 	
 </div>
 
 
+
+<div class="sign_modal_wrapper"></div>
+<div class="sign_modal">
+	<span class="fa_wrapper"><%= fa_icon "times" %></span>
+			  <div class="sign_up_modal sign_modal_content">
+			    <h2>STYLIST SIGN UP</h2>
+					    <form class="new_stylist" id="new_stylist" action="/stylists" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="QFtz4Ocw6slu76jaDZVUcIVNwAgmTsG4jrHlUmsqryL3Lvn8KSnyvXr3KrOI3T5oi56FasvXMEodcEO7aN55xQ==" />
+					  
+
+
+					  <div class="field">
+					    <label for="stylist_stylist_name">Stylist name</label><br />
+					    <input autofocus="autofocus" type="text" name="stylist[stylist_name]" id="stylist_stylist_name" />
+					  </div>
+
+					  <div class="field">
+					    <label for="stylist_salon_name">Salon name</label><br />
+					    <input autofocus="autofocus" type="text" name="stylist[salon_name]" id="stylist_salon_name" />
+					  </div>
+
+					  <div class="field">
+					    <label for="stylist_salon_name">Salon address</label><br />
+					    <input autofocus="autofocus" type="text" name="stylist[address]" id="stylist_address" />
+					  </div>
+
+					  <div class="field">
+					    <label for="stylist_stylist_age">Stylist age</label><br />
+					    <input autofocus="autofocus" type="number" name="stylist[stylist_age]" id="stylist_stylist_age" />
+					  </div>
+
+					  <div class="field">
+					    <label for="stylist_stylist_age">Stylist region</label><br />
+					    <input autofocus="autofocus" type="text" name="stylist[stylist_region]" id="stylist_stylist_region" />
+					  </div>
+
+
+
+					  <div class="field">
+					    <label for="stylist_email">Email</label><br />
+					    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="stylist[email]" id="stylist_email" />
+					  </div>
+
+					  <div class="field">
+					    <label for="stylist_password">Password</label>
+					    <em>(6 characters minimum)</em>
+					    <br />
+					    <input autocomplete="new-password" type="password" name="stylist[password]" id="stylist_password" />
+					  </div>
+
+					  <div class="field">
+					    <label for="stylist_password_confirmation">Password confirmation</label><br />
+					    <input autocomplete="new-password" type="password" name="stylist[password_confirmation]" id="stylist_password_confirmation" />
+					  </div>
+
+					  <div class="actions">
+					    <input class="btn btn-primary btn-lg top-bt" type="submit" name="commit" value="Sign up" data-disable-with="Sign up" />
+					  </div>
+					</form>
+			  </div>
+
+			  <div class="sign_in_modal sign_modal_content">
+			    <h2>USER SIGN UP</h2>
+
+
+
+					    <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="r89udLJk9MhiQnlvyI1sQRSsBLk+Kah3gDOtM77mFo6AABFHKdGr4YPhxCJ2VyDtnmIGwfdL24gKq4Rw8FpQ/Q==" />
+					  
+
+
+						  <div class="field">
+						    <label for="user_user_name">User name</label><br />
+						    <input autofocus="autofocus" type="text" name="user[user_name]" id="user_user_name" />
+						  </div>
+
+						  <div class="field">
+						    <label for="user_user_age">User age</label><br />
+						    <input autofocus="autofocus" type="number" name="user[user_age]" id="user_user_age" />
+						  </div>
+
+						  <div class="field">
+						    <label for="user_email">Email</label><br />
+						    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" />
+						  </div>
+
+						  <div class="field">
+						    <label for="user_password">Password</label>
+						    <em>(6 characters minimum)</em>
+						    <br />
+						    <input autocomplete="new-password" type="password" name="user[password]" id="user_password" />
+						  </div>
+
+						  <div class="field">
+						    <label for="user_password_confirmation">Password confirmation</label><br />
+						    <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+						  </div>
+
+						  <div class="actions">
+						    <input class="btn btn-primary btn-lg top-bt" type="submit" name="commit" value="Sign up" data-disable-with="Sign up" />
+						  </div>
+						</form>
+
+
+			  </div>
+			</div>
+
+
+<div class="sign_modal_wrapper2"></div>
+<div class="sign_modal2">
+   <span class="fa_wrapper2"><%= fa_icon "times" %></span>
+             <div class="sign_up_modal2 sign_modal_content2">
+
+              <h2>STYLIST's LOGIN</h2>
+                        <form class="new_stylist" id="new_stylist" action="/stylists/sign_in"accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="9Gt52LDwSqdt9xtq/Wfr44PRre8I+kPlR8l9ma0QaYhbbojCcFbe1qSqDNio6fgiLeKMqx3ANIhxzKbDjg2xYQ==" />
+						  <div class="field">
+						    <label for="stylist_email">Email</label><br />
+						    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="stylist[email]" id="stylist_email" />
+						  </div>
+
+						  <div class="field">
+						    <label for="stylist_password">Password</label><br />
+						    <input autocomplete="current-password" type="password" name="stylist[password]" id="stylist_password" />
+						  </div>
+
+						    <div class="field">
+						      <input name="stylist[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="stylist[remember_me]" id="stylist_remember_me" />
+						      <label for="stylist_remember_me">Remember me</label>
+						    </div>
+
+						  <div class="actions">
+						    <input class="btn btn-primary btn-lg top-bt" type="submit" name="commit" value="Log in" data-disable-with="Log in" />
+						  </div>
+						</form>
+
+						<a class="tops" href="/stylists/password/new">Forgot your password?</a><br />
+
+
+
+             </div>
+             <div class="sign_in_modal2 sign_modal_content2">
+              <h2>USER's LOGIN</h2>
+                        <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="N31SgXepRd54dXsZrmO0KASVYaiGEZ6kafnHif2vpa/RJNqRNkmSj8q6wR+Sddq3z9Im91AlgntRho/bXQIsqQ==" />
+						  <div class="field">
+						    <label for="user_email">Email</label><br />
+						    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" />
+						  </div>
+
+						  <div class="field">
+						    <label for="user_password">Password</label><br />
+						    <input autocomplete="current-password" type="password" name="user[password]" id="user_password" />
+						  </div>
+
+						    <div class="field">
+						      <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+						      <label for="user_remember_me">Remember me</label>
+						    </div>
+
+						  <div class="actions">
+						    <input class="btn btn-primary btn-lg top-bt" type="submit" name="commit" value="Log in" data-disable-with="Log in" />
+						  </div>
+                        </form>
+
+
+                        <a class="tops" href="/users/password/new">Forgot your password?</a><br />
+
+             </div>
+</div>
 </div>

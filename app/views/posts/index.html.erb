@@ -1,119 +1,207 @@
-<div class="ind">
+<div class="ind container">
+
+  <div class="row">
 
     
-  <h1 class="top-head">SNAPS</h1>
 
-  <!-- タブ・メニュー -->
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#sampleContentA" data-toggle="tab">ALL</a></li>
-  <li><a href="#sampleContentB" data-toggle="tab">MEN</a></li>
-  <li><a href="#sampleContentC" data-toggle="tab">SHORT</a></li>
-  <li><a href="#sampleContentD" data-toggle="tab">MEDIUM</a></li>
-  <li><a href="#sampleContentE" data-toggle="tab">LONG</a></li>
 
-</ul>
 
-<!-- タブ内容 -->
-<div class="tab-content">
-  <div class="tab-pane active" id="sampleContentA">
-    
-    <% @posts.each do |post| %>
-  <div class="post">
-    <div class="blockarea">
 
-  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
 
-  <div class="caparea1">
-    <h3><%= post.post_name %></h3>
-    <h3><%= post.stylist.stylist_name %></h3>
-    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+
+
+                   <h1 class="heads">SNAP</h1>
+
+                   <% if current_stylist %>
+
+
+                       <div class="row">
+                         <p class="new_button news_button">NEW</p>
+
+
+                       </div>
+                   <% end %>
+
+
+            
+
+            <!-- タブ・メニュー -->
+                    <ul class="nav nav-tabs tabs">
+                          <li class="active "><a href="#sampleContentA" data-toggle="tab">ALL</a></li>
+                          <li><a href="#sampleContentB" data-toggle="tab">MEN</a></li>
+                          <li><a href="#sampleContentC" data-toggle="tab">SHORT</a></li>
+                          <li><a href="#sampleContentD" data-toggle="tab">MEDIUM</a></li>
+                          <li><a href="#sampleContentE" data-toggle="tab">LONG</a></li>
+
+                    </ul>
+
+                    <!-- タブ内容 -->
+                    <div class="tab-content">
+
+                      <div class="tab-pane active" id="sampleContentA">
+                        <div class="test">
+
+                            <% @posts.each do |post| %>
+                                <div class="post">
+                                   <div class="blockarea">
+
+                                    <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                                   <div class="caparea1">
+                                    <h3><%= post.post_name %></h3>
+                                    <h3><%= post.stylist.salon_name %></h3>
+                                     <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+                                     <p>Favorit <%= post.favorites.count %>  View <%= post.impressionist_count %></p>
+
+
+                                   </div>
+                                   </div>
+                                </div>
+                            <% end %>
+                        </div>
+                      </div>
+
+
+                    <div class="tab-pane" id="sampleContentB">
+                      <div class="test">
+                        
+                            <% @men.each do |post| %>
+                                <div class="post">
+                                    <div class="blockarea">
+
+                                     <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                                    <div class="caparea1">
+                                      <h3><%= post.post_name %></h3>
+                                      <h3><%= post.stylist.salon_name %></h3>
+                                      <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+                                     <p>Favorit <%= post.favorites.count %>  View <%= post.impressionist_count %></p>
+
+
+                                    </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                      </div>
+                    </div>
+                                  
+
+                    <div class="tab-pane" id="sampleContentC">
+                      <div class="test">
+                            <% @short.each do |post| %>
+                                <div class="post">
+                                    <div class="blockarea">
+
+                                      <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                                    <div class="caparea1">
+                                      <h3><%= post.post_name %></h3>
+                                      <h3><%= post.stylist.salon_name %></h3>
+                                      <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+                                     <p>Favorit <%= post.favorites.count %>  View <%= post.impressionist_count %></p>
+
+
+                                    </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="sampleContentD">
+                      <div class="test">
+                            <% @medium.each do |post| %>
+                                <div class="post">
+                                    <div class="blockarea">
+
+                                      <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                                    <div class="caparea1">
+                                      <h3><%= post.post_name %></h3>
+                                      <h3><%= post.stylist.salon_name %></h3>
+                                      <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+                                      <p>Favorit <%= post.favorites.count %>  View <%= post.impressionist_count %></p>
+
+
+                                    </div>
+                                    </div>
+                                </div>
+                           <% end %>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="sampleContentE">
+                      <div class="test">
+                            <% @long.each do |post| %>
+                                <div class="post">
+                                    <div class="blockarea">
+
+                                      <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                                    <div class="caparea1">
+                                      <h3><%= post.post_name %></h3>
+                                      <h3><%= post.stylist.salon_name %></h3>
+                                      <p><%= link_to "SEE MORE", post_path(post.id) %></p>
+                                      <p>Favorit <%= post.favorites.count %>  View <%= post.impressionist_count %></p>
+
+
+                                    </div>
+                                    </div>
+                                </div>
+                            <% end %>
+                      </div>
+                    </div>
+
+
+
+
+
+                    </div>
 
   </div>
-     </div>
-   </div>
-<% end %>
-  </div>
-  <div class="tab-pane" id="sampleContentB">
-    
-    <% @men.each do |post| %>
-  <div class="post">
-    <div class="blockarea">
-
-  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
-
-  <div class="caparea1">
-    <h3><%= post.post_name %></h3>
-    <h3><%= post.stylist.stylist_name %></h3>
-    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
-
-  </div>
-     </div>
-   </div>
-<% end %>
-  </div>
-  <div class="tab-pane" id="sampleContentC">
-    <% @short.each do |post| %>
-  <div class="post">
-    <div class="blockarea">
-
-  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
-
-  <div class="caparea1">
-    <h3><%= post.post_name %></h3>
-    <h3><%= post.stylist.stylist_name %></h3>
-    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
-
-  </div>
-     </div>
-   </div>
-<% end %>
-  </div>
-  <div class="tab-pane" id="sampleContentD">
-    <% @medium.each do |post| %>
-  <div class="post">
-    <div class="blockarea">
-
-  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
-
-  <div class="caparea1">
-    <h3><%= post.post_name %></h3>
-    <h3><%= post.stylist.stylist_name %></h3>
-    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
-
-  </div>
-     </div>
-   </div>
-<% end %>
-  </div>
-
-  <div class="tab-pane" id="sampleContentE">
-    <% @long.each do |post| %>
-  <div class="post">
-    <div class="blockarea">
-
-  <%= attachment_image_tag post, :post_image, :fill, 250, 250, format: 'jpeg' %>
-
-  <div class="caparea1">
-    <h3><%= post.post_name %></h3>
-    <h3><%= post.stylist.stylist_name %></h3>
-    <p><%= link_to "SEE MORE", post_path(post.id) %></p>
-
-  </div>
-     </div>
-   </div>
-<% end %>
-  </div>
-
-
-
-
-
-</div>
   
 
+          
+
+
 
 </div>
 
 
 
+      <!-- モーダルー -->
+
+
+      <div class="new_modal_wrapper"></div>
+            <div class="new_modal">
+              <span class="new_fa_wrapper"><%= fa_icon "times" %></span>
+                  <div class="news_modal new_modal_content">
+                    <h2 class="new-header">NEW</h2>
+                          <form class="new_post" id="new_post" enctype="multipart/form-data" action="/posts" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="lnDyIbUFVPqipqmEubjPH41D3cmsaFXB/ZCB0QDsJdMAQAnucZCZR1eADor2DdaZ3IjZYfSXi6HK4DFFWFKM7g==" />
+                       
+                                <h4>タイトル</h4>
+                                  <input type="text" name="post[post_name]" id="post_post_name" />
+                               
+                                <h4>コメント</h4>
+                                  <textarea name="post[post_opinion]" id="post_post_opinion"></textarea>
+
+                                <h4>カテゴリー</h4>
+                                  <select name="post[category]" id="post_category"><option value="men">men</option>
+                                  <option value="short">short</option>
+                                  <option value="medium">medium</option>
+                                  <option value="long">long</option></select>
+                               
+
+                               
+                               
+                                <h4>イメージ</h4>
+                                  <input value="{}" data-reference="4a1a04fa40500a1566b542f46d0e2b61" type="hidden" name="post[post_image]" /><input  class="img-post"  data-reference="4a1a04fa40500a1566b542f46d0e2b61" include_hidden="false" type="file" name="post[post_image]" id="post_post_image" />
+                                 
+                                  <input class="btn btn-primary btn-lg top-bt top-new" type="submit" name="commit" value="SEND" data-disable-with="SEND" />
+                         
+                      </form>
+                  </div>
+        
+      </div>
+        
 

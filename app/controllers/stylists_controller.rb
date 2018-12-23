@@ -1,7 +1,12 @@
 class StylistsController < ApplicationController
+    before_action :logged_in , only: [:index, :show]
+    before_action :authenticate_stylist!, :only => [:edit]
+
+	impressionist only: [:show]
 
 	def index
 		@stylists = Stylist.all
+		@rank = Stylist.find(Follow.group(:stylist_id).order('count(stylist_id) desc').limit(30).pluck(:stylist_id))
 
 	end
 
@@ -59,6 +64,13 @@ class StylistsController < ApplicationController
 
 
 
+	    impressionist(@stylist, nil, unique: [:session_hash])
+
+
+
+
+
+
 
 	end
 
@@ -80,4 +92,12 @@ class StylistsController < ApplicationController
 	def stylist_params
 		params.require(:stylist).permit(:stylist_name, :salon_name, :stylist_sex, :stylist_age, :stylist_region, :stylist_hobby, :email, :history, :stylist_introduction, :stylist_image, :post_code, :address, :phone_number, :holiday, :business_houre, :menu, :salon_image)
 	end
+
+	def logged_in
+        unless user_signed_in? || stylist_signed_in?
+            redirect_to root_path
+            
+        end
+        
+    end
 end

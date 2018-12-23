@@ -1,76 +1,179 @@
 <div class="container ind">
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
-      
-      <div class="post-show"><%= attachment_image_tag @post, :post_image, :fill, 500, 500, format: 'jpeg', fallback: "/assets/ooo.jpeg" %></div>
-    </div>
+        <div class="row">
 
-    <div class="col-xs-12 col-sm-6 col-md-6 shows">
-      
+              <div class="col-xs-12 col-ld-6 col-md-6 show-img">
+                
+                 <div class="post-show"><%= attachment_image_tag @post, :post_image, :fill, 500, 500, format: 'jpeg', fallback: "/assets/ooo.jpeg" %></div>
+              </div>
 
-
-      <div class="row">
+          <div class="col-ld-6 col-md-6 shows">
+            
 
 
-      <%= attachment_image_tag @post.stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/ooo.jpeg" , class: "stylist-image" %>
-
-      <%= @post.stylist.salon_name %>
-      <%= @post.stylist.stylist_name %>
-      
-        
-      
-
-      </div>
-
-      <div class="row show-favorite">
-
-      <% if current_user %>
-
-       <% if @post.favorited_by?(current_user ) %>
-        <li>
-          <%= link_to post_favorites_path(@post), method: :delete do %>
-            <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-            favorite <%= @post.favorites.count %> 
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to post_favorites_path(@post), method: :post do %>
-            <i class="fa fa-heart-o" aria-hidden="true"></i>
-            favorite <%= @post.favorites.count %> 
-          <% end %>
-        </li>
-
-        <% end %>
-
-      <% else %>
-      favorite <%= @post.favorites.count %>
-
-      <% end %>
-
-      </div>
-
-      <div class="row show-contents">
+                  <div class="row">
 
 
-      <P class="show-title"><%= @post.post_name %></P>
+                      <div class="show-name"><%= attachment_image_tag @post.stylist, :stylist_image, :fill, 130, 130, format: 'jpeg', fallback: "/assets/ooo.jpeg" , class: "stylist-image" %>
 
-      <p class="show-opinion"><%= @post.post_opinion %></p>
-      
+                      <%= @post.stylist.salon_name %>
+                      <%= @post.stylist.stylist_name %></div>
+                  
+                    
+                  
 
-      </div>
-     
+                  </div>
 
-       </div>
-    
-      
-    </div>
+                  <div class="row show-favorite">
+
+                      <% if current_user %>
+
+                           <% if @post.favorited_by?(current_user ) %>
+
+                              <p><%= link_to post_favorites_path(@post), method: :delete do %>
+                                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                                favorite</p>
+                              <% end %>
+
+                              <div>favorite <%= @post.favorites.count %></div>
+
+                          <% else %>
+
+                              <p><%= link_to post_favorites_path(@post), method: :post do %>
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                favorite</p>
+                              <% end %>
+
+                              <div class="favorite-term">favorite <%= @post.favorites.count %></div>
+
+
+                          <% end %>
+
+                      <% else %>
+                          <div class="favorite-term">favorite <%= @post.favorites.count %></div>
+
+                      <% end %>
           
-  </div>
+
+
+                      <div class="favorite-term"><string>View</string>
+                      <%= @post.impressionist_count %></div>
+                      <p>コメント <%= @post.post_comments.count %>件</p>
+
+
+
+                  </div>
+
+                  <div class="row show-contents">
+
+
+                      <P class="show-title"><%= @post.post_name %></P>
+
+                      <p class="show-opinion"><%= @post.post_opinion %></p>
+                      
+          
+                      
+
+                  </div>
+           
+
+            </div>
+          
+            
+        </div>
+
+
+
+
+
+
+        <div class="row show-coments ">
+          <% if current_user %>
+                  <% @post.post_comments.each do |post_comment| %>
+                  <table>
+
+                    <div class="show-coment">
+                      <tr>
+                      <th><%= attachment_image_tag post_comment.user, :user_image, :fill, 50, 50, format: 'jpeg', fallback: "/assets/ooo.jpeg" , class: "stylist-image" %></th>
+                
+                                <td><%= post_comment.user.user_name %>
+                                
+                                <%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+                            
+                            
+                                <td class="show-coment-dtail"><%= post_comment.comment %></td></tr>
+                    </div>
+
+                  </table>
+
+                  <% end %>
+
+                 
+
+
+                  <%= form_for [@post, @post_comment] do |f| %>
+                
+                
+                    <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメント" %>
+          
+                  
+                   <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+                  <% end %>
+
+          <% else %>
+
+                  <% @post.post_comments.each do |post_comment| %>
+                  <table>
+
+                    <div class="show-coment">
+                      <tr>
+                      <th><%= attachment_image_tag post_comment.user, :user_image, :fill, 50, 50, format: 'jpeg', fallback: "/assets/ooo.jpeg" , class: "stylist-image" %></th>
+                
+                                <td><%= post_comment.user.user_name %>
+                                
+                                <%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+                            
+                            
+                                <td class="show-coment-dtail"><%= post_comment.comment %></td></tr>
+                    </div>
+
+                  </table>
+
+                  <% end %>
+                      
+          <% end %>
+
+
+
+
+                  
+
+
+
+          
+
+
+        </div>
+
+                <% if current_stylist != nil %>
+                    <% if current_stylist.id == @post.stylist.id %>
+
+
+
+                    
+                     <div class="row show-btn">
+                             <%=link_to "EDIT", edit_post_path, class: "btn btn-primary btn-lg showb" %>
+                             <%= link_to "DESTROY", post_path(@post), method: :delete, "data-confirm" => "本当に消しますか?", class: "btn btn-primary btn-lg" %>
+
+
+                     </div>
+                    <% end %>
+
+
+                <% end %>
+      
   
 </div>
-
 
 
 

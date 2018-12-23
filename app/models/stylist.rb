@@ -1,7 +1,6 @@
 class Stylist < ApplicationRecord
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  is_impressionable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,6 +23,30 @@ class Stylist < ApplicationRecord
 
   attachment :stylist_image
   attachment :salon_image
+
+  validates :stylist_name, presence: true, length: { in: 1..20 }
+  validates :salon_name, presence: true, length: { in: 1..20 }
+  validates :stylist_age, presence: true, length: { in: 1..20 }
+  validates :email, presence: true, length: { in: 1..30 }
+  validates :stylist_region,    length: { maximum: 20 }
+  validates :stylist_hobby,    length: { maximum: 50 }
+  validates :fort,    length: { maximum: 50 } 
+  validates :stylist_introduction,    length: { maximum: 500 } 
+  validates :phone_number,    length: { maximum: 15 } 
+  validates :holiday,    length: { maximum: 30 } 
+  validates :business_houre,    length: { maximum: 40 } 
+  validates :menu,    length: { maximum: 500 } 
+  validates :salon_introduction,    length: { maximum: 500 } 
+  validates :salon_url,    length: { maximum: 100 } 
+
+
+
+
+
+
+
+
+
 
   
 

@@ -1,16 +1,61 @@
 <div class="container">
+	<div class="row">
 
 
 
-<h1>STYLISTs</h1>
-
-<% @stylists.each do |stylist| %>
-
-<%= attachment_image_tag stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/ooo.jpeg" %> 
 
 
-  <%=link_to stylist.stylist_name , stylist_path(stylist) %>さん</a>
-  <hr>
-  <% end %>
-	
+		<h1 class="heads">STYLIST</h1>
+
+		<!-- タブ・メニュー -->
+				<ul class="nav nav-tabs tabs">
+					<li  class="active"><a href="#sampleContentA" data-toggle="tab">ALL</a></li>
+					<li><a href="#sampleContentB" data-toggle="tab">POP</a></li>
+					
+				</ul>
+
+				<!-- タブ内容 -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="sampleContentA">
+
+						<% @stylists.each do |stylist| %>
+						<table class="stylist-index">
+
+						<th class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= attachment_image_tag stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "index-img" %><th>
+
+
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%=link_to stylist.stylist_name , stylist_path(stylist), class: "stylist-name" %><hr class="under"></td>
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= stylist.salon_name %><hr class="under"></td>
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= stylist.stylist_region %><hr class="under"></td>
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2">Follow <%= stylist.follows.count %><hr class="under"></td>
+
+						</table>
+						  <hr class="stylist-line">
+						  <% end %>
+					</div>
+					<div class="tab-pane" id="sampleContentB">
+						<% @rank.each.with_index(1) do |rank, i| %>
+						<table class="stylist-index">
+						<td class=" rank stylist-tab col-xs-2 col-md-2 col-lg-2"><%= "#{i}位" %></td>
+
+						<td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= attachment_image_tag rank, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "index-img"%><td>
+
+
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%=link_to rank.stylist_name , stylist_path(rank), class: "stylist-name" %><hr class="under"></td>
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= rank.salon_name %><hr class="under"></td>
+						  <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= rank.stylist_region %><hr class="under"></td>
+						  <td class="stylist-tab col-xs-3 col-md-2 col-lg-2">Fallow　<%= rank.follows.count %><hr class="under"></td>
+
+						</table>
+						  <hr class="stylist-line">
+
+						<% end %>
+					</div>
+					
+				</div>
+
+		<hr>
+
+		
+    </div>
 </div>

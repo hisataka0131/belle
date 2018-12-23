@@ -1,28 +1,65 @@
 <div class="container ind">
 
   <div class="row">
-    <h2>RANKING</h2>
+       <h2 class="heads">RANKING</h2>
   </div>
 
   <div class="row">
+    <!-- タブ・メニュー -->
+          <ul class="nav nav-tabs tabs">
+            <li  class="active"><a href="#sampleContentA" data-toggle="tab">FAVORITE</a></li>
+            <li><a href="#sampleContentB" data-toggle="tab">PV</a></li>
+          </ul>
+
+          <!-- タブ内容 -->
+          <div class="tab-content">
+
+              <div class="tab-pane  active" id="sampleContentA">
+                <% @rank.each.with_index(1) do |rank, i| %>
+                   <div class="post">
+                        <p class="rank"><%= "#{i}位" %></p>
+                      <div class="blockarea">
+                        <%= attachment_image_tag rank, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                         <div class="caparea1">
+                            <h3><%= rank.post_name %></h3>
+                            <h3><%= rank.stylist.salon_name %></h3>
+                            <p><%= link_to "SEE MORE", post_path(rank) %></p>
+                            <p>Favorit <%= rank.favorites.count %>  View <%= rank.impressionist_count %></p>
+
+                         </div>
+                      </div>
+                   </div>
+
+                <% end %>
+              </div>
+
+              <div class="tab-pane" id="sampleContentB">
+                <% @most_viewed.each.with_index(1) do |rank, i| %>
+      
+                  <div class="post">
+                        <p class="rank"><%= "#{i}位" %></p>
+                      <div class="blockarea">
+                        <%= attachment_image_tag rank, :post_image, :fill, 250, 250, format: 'jpeg' %>
+
+                         <div class="caparea1">
+                            <h3><%= rank.post_name %></h3>
+                            <h3><%= rank.stylist.salon_name %></h3>
+                            <p><%= link_to "SEE MORE", post_path(rank) %></p>
+                            <p>Favorit <%= rank.favorites.count %>  View <%= rank.impressionist_count %></p>
+
+                         </div>
+                      </div>
+                   </div>
+                  
+                
+                <% end %>
+              </div>
+            
+          </div>
 
 
-      <% @rank.each.with_index(1) do |rank, i| %>
-      <div class="post">
-      <%= "#{i}位" %>
-          <div class="blockarea">
-      <%= attachment_image_tag rank, :post_image, :fill, 250, 250, format: 'jpeg' %>
-
-        <div class="caparea1">
-          <h3><%= rank.post_name %></h3>
-          <h3><%= rank.stylist.stylist_name %></h3>
-          <p><%= link_to "SEE MORE", post_path(rank) %></p>
-
-        </div>
-           </div>
-         </div>
-
-      <% end %>
+      
       
       
   

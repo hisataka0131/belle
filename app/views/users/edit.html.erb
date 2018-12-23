@@ -1,68 +1,82 @@
-<h1>edit</h1>
+<div class="container">
+  
+     <h1 class="heads">edit</h1>
 
-<%= form_for(@user) do |f| %>
-            <div>
-              <%= f.label :user_name %>
-              <%= f.text_field :user_name %>
-            </div>
+     <div class="editer">
 
-            
-            <div>
-              <%= f.label :user_sex %>
-              <%= f.label :man %>
-              <%= f.radio_button :user_sex, :man, class:"sex" %>
-              <%= f.label :woman %>
-              <%= f.radio_button :user_sex, :woman, class:"sex" %>
-            </div>
 
-            <div>
-              <%= f.label :user_age %>
-              <%= f.text_field :user_age %>
-            </div>
 
-            <div>
-              <%= f.label :user_region %>
-              <%= f.text_field :user_region%>
-            </div>
+      <%= form_for(@user) do |f| %>
+                  <div>
+                    <%= f.label :user_name %><br>
+                    <%= f.text_field :user_name %>
+                  </div>
 
-            <div >
-              <%= f.label :user_hobby%>
-              <%= f.text_field :user_hobby %>
-            </div>
+                  
+                  <div>
+                    <%= f.label :user_sex %><br>
+                    <%= f.label :man %>
+                    <%= f.radio_button :user_sex, :man, class:"sex" %>
+                    <%= f.label :woman %>
+                    <%= f.radio_button :user_sex, :woman, class:"sex" %>
+                  </div>
 
-            <div>
-              <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
-            </div>
+                  <div>
+                    <%= f.label :user_age %><br>
+                    <%= f.text_field :user_age %>
+                  </div>
 
-            
+                  <div>
+                    <%= f.label :user_region %><br>
+                    <%= f.text_field :user_region%>
+                  </div>
 
-             <div>
-              <%= f.label :user_introduction%>
-              <%= f.text_area :user_introduction %>
-            </div>
+                  <div >
+                    <%= f.label :user_hobby%><br>
+                    <%= f.text_field :user_hobby %>
+                  </div>
 
-            <div>
-              <%= f.label :password %>
-              <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %>
-              <%= f.password_field :password, autocomplete: "new-password", class:"password" %>
-            </div>
+                  <div>
+                    <%= f.label :email %><br>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
+                  </div>
 
-            <div>
-              <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
-            </div>
-            <div>
-            <div class="user-edit-image">
-            <%= attachment_image_tag @user, :user_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
-            </div>
-            <label>ProfileImage</label>
-            <%= f.attachment_field :user_image, placeholder: "プロフィール画像" %>
-            </div>
+                  
 
-            <div>
-              <%= f.submit "Update Account", class: "btn-default" %>
-            </div>
-<% end %>
+                   <div>
+                    <%= f.label :user_introduction%><br>
+                    <%= f.text_area :user_introduction %>
+                  </div>
+
+                  <div>
+                    <%= f.label :password %><br>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
+                    <%= f.password_field :password, autocomplete: "new-password", class:"password" %>
+                  </div>
+
+                  <div>
+                    <%= f.label :password_confirmation %><br>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
+                  </div>
+                  <div>
+                  <div class="user-edit-image"><br>
+                  <%= attachment_image_tag @user, :user_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
+                  </div>
+                  <label>ProfileImage</label>
+                  <%= f.attachment_field :user_image, placeholder: "プロフィール画像", class: "edit-img" %>
+                  </div>
+
+                  <div>
+                    <%= f.submit "Update", class: "btn btn-primary btn-lg ed" %>
+                  </div>
+      <% end %>
+     
+       
+
+
+
+       
+     </div>
+</div>
