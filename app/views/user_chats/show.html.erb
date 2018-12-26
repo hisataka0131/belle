@@ -24,7 +24,7 @@
 								 <div class="title2">
 								 	<table>
 								 		<tr class="layout">
-										 	<th class="col-xs-3 col-sm-3 col-md-3 thead-content"><%= attachment_image_tag @stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "thead-img" %>
+										 	<th class="col-xs-3 col-sm-3 col-md-3 thead-content"><%= attachment_image_tag @stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/images/stylist-fallback.jpeg", class: "thead-img" %>
 
 											 <p><%= @stylist.stylist_name %></p>
 											 <p><%= m.created_at.strftime('%Y/%m/%d') %></p>
@@ -41,7 +41,7 @@
 						         <div class="title3">
 						         	<table>
 						         		<tr>
-						         			<th class="col-xs-3 col-sm-3 col-md-3 thead-content"><%= attachment_image_tag @user, :user_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "thead-img" %>
+						         			<th class="col-xs-3 col-sm-3 col-md-3 thead-content"><%= attachment_image_tag @user, :user_image, :fill, 100, 100, format: 'jpeg', fallback: "/images/stylist-fallback.jpeg", class: "thead-img" %>
 
 											 <p><%= @user.user_name %></p>
 											 <p><%= m.created_at.strftime('%Y/%m/%d') %></p>

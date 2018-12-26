@@ -29,7 +29,7 @@
                                       <table>
                                         <tr class="layout">
                                           <th class="col-xs-2 col-sm-2 col-md-2 thead-content">
-                                            <%= attachment_image_tag @message.stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "thead-img" %>
+                                            <%= attachment_image_tag @message.stylist, :stylist_image, :fill, 100, 100, format: 'jpeg', fallback: "/images/stylist-fallback.jpeg", class: "thead-img" %>
 
                                             <p><%= m.stylist.stylist_name %></p>
                                             <p><%= m.created_at.strftime('%Y/%m/%d') %></p>

@@ -1,6 +1,8 @@
 class CreateImpressionsTable < ActiveRecord::Migration[5.2]
   def self.up
-    create_table :impressions, :force => true do |t|
+    create_table :impressions, :force => true  , :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
+    #create_table :impressions, :force => true  do |t|
+
       t.string :impressionable_type
       t.integer :impressionable_id
       t.integer :user_id

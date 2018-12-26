@@ -6,7 +6,7 @@
 	
 			 <% @stylist.user.each do |user| %>
 			              <table class="stylist-index">
-			              <th class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= attachment_image_tag user, :user_image, :fill, 100, 100, format: 'jpeg', fallback: "/assets/stylist-fallback.jpeg", class: "index-img" %><th>
+			              <th class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%= attachment_image_tag user, :user_image, :fill, 100, 100, format: 'jpeg', fallback: "/images/stylist-fallback.jpeg", class: "index-img" %><th>
 
 
 			              <td class="stylist-tab col-xs-2 col-md-2 col-lg-2"><%=link_to user.user_name , user_path(user), class: "stylist-name" %><hr class="under"></td>

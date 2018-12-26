@@ -72,3 +72,4 @@ gem "pry-rails"
 gem 'geocoder'
 gem 'impressionist'
 gem 'font-awesome-rails'
+

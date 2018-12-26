@@ -2,7 +2,8 @@
 
 class DeviseCreateStylists < ActiveRecord::Migration[5.2]
   def change
-    create_table :stylists do |t|
+    create_table :stylists , :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC'do |t|
+    # create_table :stylists do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

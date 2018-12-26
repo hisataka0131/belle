@@ -75,7 +75,7 @@
                         </div>
                         <div>
                         <div>
-                        <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
+                        <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/images/ooo.jpeg"%>
                         </div>
                         <label>ProfileImage</label>
                         <%= f.attachment_field :stylist_image, placeholder: "プロフィール画像" ,class: "edit-img" %>
@@ -122,7 +122,7 @@
                         </div>
 
                         <div>
-                        <%= attachment_image_tag @stylist, :salon_image, :fill, 200, 200,fallback: "/assets/ooo.jpeg"%>
+                        <%= attachment_image_tag @stylist, :salon_image, :fill, 200, 200,fallback: "/images/ooo.jpeg"%>
                         </div>
                         <label>SalonImage</label>
                         <%= f.attachment_field :salon_image, placeholder: "salon画像", class: "edit-img" %>
