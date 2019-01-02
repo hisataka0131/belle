@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   attachment :user_image
 
+  enum user_sex: { man: 1, woman: 2 }
+
   validates :user_name, presence: true, length: { in: 1..20 }
   validates :user_age, presence: true, length: { in: 1..20 }
   validates :email, presence: true, length: { in: 1..30 }

@@ -9,7 +9,7 @@
           
           <div class="row">
               
-              <%= attachment_image_tag @stylist, :stylist_image, :fill, 300, 300, format: 'jpeg', fallback: "/images/ooo.jpeg", class: "stylist-pro" %> 
+              <%= attachment_image_tag @stylist, :stylist_image, :fill, 300, 300, format: 'jpeg', fallback: "/images/user_image.jpeg", class: "stylist-pro" %> 
           </div>
           
 
@@ -95,14 +95,14 @@
                           <% @chats.each do |chat| %>
                           <table>
                             <tr><th class="col-xs-4"><%=link_to chat.user.user_name , user_path(chat),class: "stylist-name" %></th>
-                            <td class="col-xs-4"><%= link_to 'チャット', user_chat_path(chat), class: "chat btn btn-primary btn-xs" %></td></tr>
+                            <td class="col-xs-4"><%= link_to 'TALK', user_chat_path(chat), class: "chat btn btn-primary btn-xs" %></td></tr>
                           </table>
                           <% end %>
 
                           <% @other.each do |other| %>
                           <table>
                             <tr><th class="col-xs-4"><%= link_to other.stylist_name ,stylist_path(other), class: "stylist-name" %></th>
-                            <td class="col-xs-4"><%= link_to 'チャット', room_path(@rooms), class: "chat btn btn-primary btn-xs" %></td></tr>
+                            <td class="col-xs-4"><%= link_to 'TALK', room_path(@rooms), class: "chat btn btn-primary btn-xs" %></td></tr>
 
                           </table>
 

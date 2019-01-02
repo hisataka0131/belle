@@ -14,7 +14,7 @@
                   <div class="row">
 
 
-                      <div class="show-name"><%= attachment_image_tag @post.stylist, :stylist_image, :fill, 130, 130, format: 'jpeg', fallback: "/image/ooo.jpeg" , class: "stylist-image" %>
+                      <div class="show-name"><%= attachment_image_tag @post.stylist, :stylist_image, :fill, 130, 130, format: 'jpeg', fallback: "/images/post_image.jpeg" , class: "stylist-image" %>
 
                       <%= @post.stylist.salon_name %>
                       <%= @post.stylist.stylist_name %></div>
@@ -127,7 +127,7 @@
 
                     <div class="show-coment">
                       <tr>
-                      <th><%= attachment_image_tag post_comment.user, :user_image, :fill, 50, 50, format: 'jpeg', fallback: "/images/ooo.jpeg" , class: "stylist-image" %></th>
+                      <th><%= attachment_image_tag post_comment.user, :user_image, :fill, 50, 50, format: 'jpeg', fallback: "/images/stylist_image.jpeg" , class: "stylist-image" %></th>
                 
                                 <td><%= post_comment.user.user_name %>
                                 

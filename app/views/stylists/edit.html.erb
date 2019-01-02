@@ -18,12 +18,12 @@
                           
                         <div>
                           <%= f.label :stylist_name %><br>
-                          <%= f.text_field :stylist_name %>
+                          <%= f.text_field :stylist_name, class: "stylist_edit form-control"%>
                         </div>
 
                         
 
-                        <div>
+                        <div class="stylist_edit">
                           <%= f.label :stylist_sex %><br>
                           <%= f.label :man %>
                           <%= f.radio_button :stylist_sex, :man, class:"sex" %>
@@ -33,32 +33,32 @@
 
                         <div>
                           <%= f.label :stylist_age %><br>
-                          <%= f.number_field :stylist_age %> 
+                          <%= f.number_field :stylist_age, class: "stylist_edit form-control" %> 
                         </div>
 
                         <div>
                           <%= f.label :stylist_region %><br>
-                          <%= f.text_field :stylist_region%>
+                          <%= f.text_field :stylist_region, class: "stylist_edit form-control" %>
                         </div>
 
                         <div >
                           <%= f.label :stylist_hobby%><br>
-                          <%= f.text_field :stylist_hobby %>
+                          <%= f.text_field :stylist_hobby, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
                           <%= f.label :email %><br>
-                          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email stylist_edit form-control" %>
                         </div>
 
                         <div>
                           <%= f.label :history %><br>
-                          <%= f.text_field :history %>年
+                          <%= f.text_field :history, class: "stylist_edit form-control" %>年
                         </div>
 
                          <div>
                           <%= f.label :stylist_introduction%><br>
-                          <%= f.text_area :stylist_introduction %>
+                          <%= f.text_area :stylist_introduction, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
@@ -66,16 +66,16 @@
                           <% if @minimum_password_length %>
                           <em>(<%= @minimum_password_length %> characters minimum)</em>
                           <% end %>
-                          <%= f.password_field :password, autocomplete: "new-password", class:"password" %>
+                          <%= f.password_field :password, autocomplete: "new-password", class:"password stylist_edit form-control" %>
                         </div>
 
                         <div>
                           <%= f.label :password_confirmation %><br>
-                          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm stylist_edit form-control" %>
                         </div>
                         <div>
                         <div>
-                        <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/images/ooo.jpeg"%>
+                        <%= attachment_image_tag @stylist, :stylist_image, :fill, 200, 200,fallback: "/images/user_image.jpeg"%>
                         </div>
                         <label>ProfileImage</label>
                         <%= f.attachment_field :stylist_image, placeholder: "プロフィール画像" ,class: "edit-img" %>
@@ -88,41 +88,41 @@
                         
                         <div>
                           <%= f.label :salon_name %><br>
-                          <%= f.text_field :salon_name %>
+                          <%= f.text_field :salon_name, class: "stylist_edit form-control" %>
                         </div>
                         <div>
                           <%= f.label :address %><br>
                           
-                          <%= f.text_field :address %>
+                          <%= f.text_field :address, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
                           <%= f.label :phone_number %><br>
-                          <%= f.text_field :phone_number%>
+                          <%= f.text_field :phone_number, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
                           <%= f.label :holiday %><br>
-                          <%= f.text_field :holiday%>
+                          <%= f.text_field :holiday, class: "stylist_edit form-control"%>
                         </div>
 
                         <div >
                           <%= f.label :business_houre%><br>
-                          <%= f.text_field :business_houre %>
+                          <%= f.text_field :business_houre, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
-                          <%= f.label :menu%><br>
-                          <%= f.email_field :menu %>
+                          <%= f.label :menu %><br>
+                          <%= f.text_area :menu, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
                           <%= f.label :salon_introduction%><br>
-                          <%= f.text_area :salon_introduction %>
+                          <%= f.text_area :salon_introduction, class: "stylist_edit form-control" %>
                         </div>
 
                         <div>
-                        <%= attachment_image_tag @stylist, :salon_image, :fill, 200, 200,fallback: "/images/ooo.jpeg"%>
+                        <%= attachment_image_tag @stylist, :salon_image, :fill, 200, 200,fallback: "/images/user_image.jpeg"%>
                         </div>
                         <label>SalonImage</label>
                         <%= f.attachment_field :salon_image, placeholder: "salon画像", class: "edit-img" %>

@@ -50,7 +50,7 @@ class Stylist < ApplicationRecord
 
   
 
-  enum sex: {man: 1, woman: 2 }
+  enum stylist_sex: { man: 1, woman: 2 }
 
   def favorited_by?(user)
           follows.where(user_id: user.id).exists?

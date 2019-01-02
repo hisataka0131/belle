@@ -9,11 +9,11 @@
       <%= form_for(@user) do |f| %>
                   <div>
                     <%= f.label :user_name %><br>
-                    <%= f.text_field :user_name %>
+                    <%= f.text_field :user_name, class: "user_edit form-control" %>
                   </div>
 
                   
-                  <div>
+                  <div class="user_edit">
                     <%= f.label :user_sex %><br>
                     <%= f.label :man %>
                     <%= f.radio_button :user_sex, :man, class:"sex" %>
@@ -23,29 +23,29 @@
 
                   <div>
                     <%= f.label :user_age %><br>
-                    <%= f.text_field :user_age %>
+                    <%= f.text_field :user_age, class: "user_edit form-control" %>
                   </div>
 
                   <div>
                     <%= f.label :user_region %><br>
-                    <%= f.text_field :user_region%>
+                    <%= f.text_field :user_region, class: "user_edit form-control" %>
                   </div>
 
                   <div >
                     <%= f.label :user_hobby%><br>
-                    <%= f.text_field :user_hobby %>
+                    <%= f.text_field :user_hobby, class: "user_edit form-control" %>
                   </div>
 
                   <div>
                     <%= f.label :email %><br>
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email user_edit form-control" %>
                   </div>
 
                   
 
                    <div>
                     <%= f.label :user_introduction%><br>
-                    <%= f.text_area :user_introduction %>
+                    <%= f.text_area :user_introduction, class: "user_edit form-control" %>
                   </div>
 
                   <div>
@@ -53,16 +53,16 @@
                     <% if @minimum_password_length %>
                     <em>(<%= @minimum_password_length %> characters minimum)</em>
                     <% end %>
-                    <%= f.password_field :password, autocomplete: "new-password", class:"password" %>
+                    <%= f.password_field :password, autocomplete: "new-password", class:"password user_edit form-control" %>
                   </div>
 
                   <div>
                     <%= f.label :password_confirmation %><br>
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"password_confirm user_edit form-control" %>
                   </div>
                   <div>
                   <div class="user-edit-image"><br>
-                  <%= attachment_image_tag @user, :user_image, :fill, 200, 200,fallback: "/images/ooo.jpeg"%>
+                  <%= attachment_image_tag @user, :user_image, :fill, 200, 200,fallback: "/images/user_image.jpeg"%>
                   </div>
                   <label>ProfileImage</label>
                   <%= f.attachment_field :user_image, placeholder: "プロフィール画像", class: "edit-img" %>

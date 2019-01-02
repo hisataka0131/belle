@@ -8,7 +8,7 @@
             <div class="row">
 
 
-                <%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: 'jpeg', fallback: "/assets/ooo.jpeg", class: "stylist-pro" %> 
+                <%= attachment_image_tag @user, :user_image, :fill, 300, 300, format: 'jpeg', fallback: "/assets/user_image.jpeg", class: "stylist-pro" %> 
 
 
 
@@ -67,13 +67,19 @@
                 </div>
                 <div class="modal-body">
                   <% @chats.each do |chat| %>
-                  <%= chat.stylist.stylist_name %>
-                  <%= link_to 'チャットへ', user_chat_path(chat) %><br>
+                  <table>
+                    <tr>
+                      <th class="col-xs-4"><%= link_to chat.stylist.stylist_name, stylist_path(chat), class: "stylist-name" %></th>
+                      <td class="col-xs-4"><%= link_to 'TALK', user_chat_path(chat), class: "chat btn btn-primary btn-xs" %></td>
+
+                    </tr>
+                  </table>
+
 
                   <% end %>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                  <button type="button" class="chat btn btn-primary btn-xs" data-dismiss="modal">閉じる</button>
                 </div>
               </div>
             </div>
